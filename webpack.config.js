@@ -1,9 +1,9 @@
-var path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require("webpack");
 
-var config = {
+const config = {
   entry: "./app/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -19,10 +19,6 @@ var config = {
           fallback: "style-loader",
           use: "css-loader"
         })
-      },
-      {
-        test: /\.ico$/,
-        use: "file-loader?name=[name].[ext]"
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -44,7 +40,8 @@ var config = {
   plugins: [
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      template: "./assets/html/index.html"
+      template: "./assets/html/index.html",
+      favicon: "./assets/img/favicon.ico"
     })
   ]
 };
