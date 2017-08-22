@@ -1,13 +1,14 @@
 var path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require("webpack");
 
-module.exports = {
+var config = {
   entry: "./app/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index_bundle.js",
-    publicPath: '/'
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -20,7 +21,8 @@ module.exports = {
         })
       },
       {
-        test: /\.ico$/, use: "file-loader?name=[name].[ext]"
+        test: /\.ico$/,
+        use: "file-loader?name=[name].[ext]"
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -46,3 +48,16 @@ module.exports = {
     })
   ]
 };
+
+if (process.env.NODE_ENV === "production") {
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  );
+}
+
+module.exports = config;
