@@ -42,7 +42,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      template: "./app/index.html"
+      template: "./assets/html/index.html"
     })
   ]
 };
