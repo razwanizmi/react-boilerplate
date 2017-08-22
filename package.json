@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Webpack boilerplate for React applications",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -13,7 +13,7 @@
       "react"
     ]
   },
-  "author": "",
+  "author": "Razwan Rashidi",
   "license": "ISC",
   "dependencies": {
     "react": "^15.6.1",
