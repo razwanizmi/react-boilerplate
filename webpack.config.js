@@ -18,6 +18,21 @@ module.exports = {
           fallback: "style-loader",
           use: "css-loader"
         })
+      },
+      {
+        test: /\.ico$/, use: "file-loader?name=[name].[ext]"
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 40000
+            }
+          },
+          "image-webpack-loader"
+        ]
       }
     ]
   },
