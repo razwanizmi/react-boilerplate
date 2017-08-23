@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-heroku",
   "version": "1.0.0",
-  "description": "Webpack boilerplate for React applications",
+  "description": "Webpack boilerplate to deploy React applications on Heroku",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV='production' webpack -p",
